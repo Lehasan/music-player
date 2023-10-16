@@ -130,7 +130,10 @@ const audioPlayer = async () => {
 
 	// event handlers
 	audioElement.addEventListener('timeupdate', updateAudioProgress)
-	audioElement.addEventListener('loadeddata', () => setTimeAudio(audioDurationElement, audioElement.duration))
+	audioElement.addEventListener('loadeddata', () => {
+		setTimeAudio(audioCurrentTimeElement, audioElement.currentTime)
+		setTimeAudio(audioDurationElement, audioElement.duration)
+	})
 
 	musicPlayButton.addEventListener('click', audioPlayOnClick)
 	progressElement.parentElement.addEventListener('click', rewindAudioOnClick)
