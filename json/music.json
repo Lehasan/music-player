@@ -1,23 +1,30 @@
 [
 	{
 		"id": 1,
-		"cover": "img/Montagem Dilatação Hipnótica 50.jpg",
+		"cover": "https://i.ytimg.com/vi/piOV8SHafRo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCLNto3x_UeKTxO3Q_BZju04keKmQ",
 		"title": "Montagem Dilatação Hipnótica 5.0",
 		"author": "DJ CRAZY 013, DJ Gk7 Original, DJ Lipe Da Zn",
 		"music": "music/Montagem Dilatação Hipnótica 50.mp3"
 	},
 	{
 		"id": 2,
-		"cover": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-		"title": "Music",
-		"author": "Author",
-		"music": "https://freeplay-rebuild-cms-production.s3.amazonaws.com/a/clear_724142b4fa.mp3"
+		"cover": "https://i.ytimg.com/vi/mGCzMWMo8N4/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLASVa2xfO4AzTutLKM213_v-PM__Q",
+		"title": "We Lose It All (ft. Voicians)",
+		"author": "Boxplot, Voicians",
+		"music": "music/We Lose It All (ft. Voicians).mp3"
 	},
 	{
 		"id": 3,
-		"cover": "img/Shiloh Dynasty  Your Favorite Song Prod bKu.gif",
+		"cover": "https://i.pinimg.com/originals/17/ad/53/17ad53ff977f0bf3e239e8c3a2f78b3a.gif",
 		"title": "Shiloh Dynasty - Your Favorite Song (Prod. bKu)",
 		"author": "BrosZZ",
 		"music": "music/Shiloh Dynasty  Your Favorite Song Prod bKu.mp3"
+	},
+	{
+		"id": 4,
+		"cover": "https://i.ytimg.com/vi/LbiwRrzgVT8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD8fIHoaic8D8Pbd9nHUIo1SU07zg",
+		"title": "Heartbreaker",
+		"author": "Iwakura",
+		"music": "music/Heartbreaker.mp3"
 	}
 ]

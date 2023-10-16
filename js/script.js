@@ -16,6 +16,9 @@ const audioPlayer = async () => {
 		musicNextButton = document.getElementById('next'),
 		musicPrevButton = document.getElementById('prev')
 
+	// volume setting
+	audioElement.volume = 0.5 // 0.5 => 50%
+
 	let audioIndex = 2
 	let musicItems = await getMusic()
 
