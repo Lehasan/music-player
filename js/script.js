@@ -22,7 +22,7 @@ const audioPlayer = async () => {
 	let audioIndex = 2
 	let musicItems = await getMusic()
 
-	//musicItems.forEach(item => console.log(item))
+	//musicItems.forEach(item => console.log(item)) ==================================================
 
 	// load music
 	loadMusic(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
@@ -99,8 +99,9 @@ const audioPlayer = async () => {
 		audioElement.pause()
 		audioElement.currentTime = null
 
-		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
+		audioImageElement.classList.remove('_loaded')
 		musicPlayButton.classList.remove('music-player__play_active')
+		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
 
 		switchButtonState()
 
@@ -131,9 +132,11 @@ const audioPlayer = async () => {
 	// event handlers
 	audioElement.addEventListener('timeupdate', updateAudioProgress)
 	audioElement.addEventListener('loadeddata', () => setTimeAudio(audioDurationElement, audioElement.duration))
+	audioImageElement.addEventListener('load', () => audioImageElement.classList.add('_loaded'))
 
 	musicPlayButton.addEventListener('click', audioPlayOnClick)
 	progressElement.parentElement.addEventListener('click', rewindAudioOnClick)
+
 	document.addEventListener('keydown', controlsOnKeydown)
 
 	audioElement.addEventListener('ended', () => {
