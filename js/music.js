@@ -5,7 +5,7 @@ export const getMusic = async () => {
 
 		return await response.json()
 	} catch (error) {
-		console.error(error)
+		console.error(123)
 	}
 }
 
