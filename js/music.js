@@ -1,6 +1,6 @@
 export const getMusic = async () => {
 	try {
-		const url = '../json/music.json',
+		const url = 'https://github.com/Lehasan/music-player/blob/main/json/music.json',
 			response = await fetch(url, { method: 'GET' })
 
 		return await response.json()
