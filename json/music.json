@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"cover": "img/Montagem Dilatação Hipnótica 50.jpg",
+		"title": "Montagem Dilatação Hipnótica 5.0",
+		"author": "DJ CRAZY 013, DJ Gk7 Original, DJ Lipe Da Zn",
+		"music": "music/Montagem Dilatação Hipnótica 50.mp3"
+	},
+	{
+		"id": 2,
+		"cover": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
+		"title": "Music",
+		"author": "Author",
+		"music": "https://freeplay-rebuild-cms-production.s3.amazonaws.com/a/clear_724142b4fa.mp3"
+	},
+	{
+		"id": 3,
+		"cover": "img/Shiloh Dynasty  Your Favorite Song Prod bKu.gif",
+		"title": "Shiloh Dynasty - Your Favorite Song (Prod. bKu)",
+		"author": "BrosZZ",
+		"music": "music/Shiloh Dynasty  Your Favorite Song Prod bKu.mp3"
+	}
+]
