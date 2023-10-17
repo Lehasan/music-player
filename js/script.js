@@ -14,7 +14,9 @@ const audioPlayer = async () => {
 	// buttons
 	const audioPlayButton = document.getElementById('play'),
 		audioNextButton = document.getElementById('next'),
-		audioPrevButton = document.getElementById('prev')
+		audioPrevButton = document.getElementById('prev'),
+		audioLoopButton = document.getElementById('loop'),
+		audioRandomButton = document.getElementById('random')
 
 	// volume setting
 	audioElement.volume = 0.8 // 0.5 => 50%
@@ -27,16 +29,26 @@ const audioPlayer = async () => {
 	// load music
 	loadAudio(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
 
-	// play and pause music
-	const audioPlayOnClick = () => {
-		audioPlayButton.blur()
-		audioPlayButton.classList.toggle('music-player__play_active')
+	// class switching function
+	const toggleButtonCLass = buttonElement => {
+		buttonElement.blur()
+		buttonElement.classList.toggle('_active')
+	}
 
-		if (!audioPlayButton.classList.contains('music-player__play_active')) {
-			return audioElement.pause()
-		}
+	// play and pause music
+	const toggleAudioPlay = () => {
+		toggleButtonCLass(audioPlayButton)
+
+		if (!audioPlayButton.classList.contains('_active')) return audioElement.pause()
 
 		return audioElement.play()
+	}
+
+	// audio loop switching
+	const toggleAudioLoop = () => {
+		toggleButtonCLass(audioLoopButton)
+
+		return audioElement.loop = audioElement.loop === true ? false : true
 	}
 
 	// music progress
@@ -52,9 +64,9 @@ const audioPlayer = async () => {
 	// rewind the music
 	const rewindAudioOnClick = event => {
 		const fullWidthProgress = event.currentTarget.offsetWidth,
-			cordX = event.offsetX
+			currentCordinateX = event.offsetX
 
-		return audioElement.currentTime = cordX / fullWidthProgress * audioElement.duration
+		return audioElement.currentTime = currentCordinateX / fullWidthProgress * audioElement.duration
 	}
 
 	// determining and setting the time of music
@@ -71,7 +83,7 @@ const audioPlayer = async () => {
 	const controlsOnKeydown = event => {
 		switch (event.code) {
 			case 'Space':
-				audioPlayOnClick()
+				toggleAudioPlay()
 				break
 			case 'ArrowRight':
 				audioElement.currentTime += 10
@@ -100,8 +112,8 @@ const audioPlayer = async () => {
 		audioElement.currentTime = null
 
 		audioDurationElement.textContent = '-:--'
+		audioPlayButton.classList.remove('_active')
 		audioImageElement.classList.remove('_loaded')
-		audioPlayButton.classList.remove('music-player__play_active')
 		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
 
 		switchButtonState()
@@ -135,14 +147,15 @@ const audioPlayer = async () => {
 	audioElement.addEventListener('loadeddata', () => setTimeAudio(audioDurationElement, audioElement.duration))
 	audioImageElement.addEventListener('load', () => audioImageElement.classList.add('_loaded'))
 
-	audioPlayButton.addEventListener('click', audioPlayOnClick)
+	audioPlayButton.addEventListener('click', toggleAudioPlay)
 	progressElement.parentElement.addEventListener('click', rewindAudioOnClick)
+	audioLoopButton.addEventListener('click', toggleAudioLoop)
 
 	document.addEventListener('keydown', controlsOnKeydown)
 
 	audioElement.addEventListener('ended', () => {
 		audioElement.currentTime = null
-		audioPlayOnClick()
+		toggleAudioPlay()
 	})
 }
 

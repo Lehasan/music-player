@@ -54,8 +54,8 @@
 	padding: var(--music-box-padding);
 	backdrop-filter: blur(var(--music-box-blur));
 	backface-visibility: hidden;
-	background-color: var(--background);
-	transition: all 0.8s;
+	background-color: var(--background-item);
+	transition: transform 0.8s;
 }
 
 .music-player__img {
@@ -133,13 +133,23 @@
 .music-player__controls {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	gap: var(--music-box-controls-gap);
+	justify-content: space-between;
+	gap: 13px;
+}
+
+.music-player__button-loop,
+.music-player__switch-button,
+.music-player__button-random {
+	width: var(--music-box-controls-size);
+	height: var(--music-box-controls-size);
+}
+
+.music-player__button-loop svg path,
+.music-player__button-random svg path {
+	transition: all var(--transition-duration);
 }
 
 .music-player__switch-button {
-	width: 30px;
-	height: 30px;
 	background: url("../img/skip-icon.svg") center / cover no-repeat;
 	transition: all var(--transition-duration);
 }
@@ -149,12 +159,12 @@
 }
 
 .music-player__play {
-	width: 50px;
-	height: 50px;
+	width: var(--music-box-play-button-size);
+	height: var(--music-box-play-button-size);
 	display: grid;
 	place-items: center;
 	border-radius: var(--music-box-play-button-radius);
-	background-color: var(--background);
+	background-color: var(--background-item);
 }
 
 .music-player__play::before {
@@ -164,10 +174,18 @@
 	background: url("../img/play-icon.svg") 2px 0 no-repeat;
 }
 
-.music-player__play_active::before {
+.music-player__play._active::before {
 	width: 23px;
 	height: 23px;
 	background: url("../img/pause-icon.svg") center / cover no-repeat;
+}
+
+.music-player__button-loop._active svg path {
+	stroke: var(--accent-color);
+}
+
+.music-player__button-random._active svg path {
+	fill: var(--accent-color);
 }
 
 .music-menu {
@@ -184,7 +202,7 @@
 }
 
 .music-player__switch-button._disabled {
-	opacity: 0.5;
+	opacity: 0.3;
 	pointer-events: none;
 }
 
@@ -204,12 +222,14 @@
 
 @media (any-hover: hover) {
 	.music-player__progress span::after,
+	.music-player__button-loop,
+	.music-player__button-random,
 	.music-player__play {
-		transition: transform 0.4s;
+		transition: transform var(--transition-duration);
 	}
 
 	.music-player__progress span {
-		transition: background-color 0.4s;
+		transition: background-color var(--transition-duration);
 	}
 
 	.music-player__progress:hover span {
@@ -220,6 +240,8 @@
 		transform: scale(1.3);
 	}
 
+	.music-player__button-loop:hover,
+	.music-player__button-random:hover,
 	.music-player__switch-button:hover,
 	.music-player__play:hover {
 		transform: scale(1.15);

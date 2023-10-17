@@ -2,6 +2,8 @@
 	--font-family: "Tilt Neon", sans-serif;
 	--color: #fff;
 
+	--transition-duration: 0.4s;
+
 	/* colors */
 	--background-gradient: #730091, #33015a;
 	--circle-top-gradient: #f504cd, #942bd1;
@@ -9,10 +11,11 @@
 
 	--music-box-progress-color: #808080;
 	--music-box-progress-line-color: #fff;
-	--music-box-progress-line-color-hover: #90ee90;
+	--music-box-progress-line-color-hover: var(--accent-color);
 	--music-box-progress-line-dot-color: #fff;
 
-	--background: rgba(255, 255, 255, 0.1);
+	--background-item: rgba(255, 255, 255, 0.1);
+	--accent-color: #90ee90;
 
 	/* music box setting */
 	--music-box-padding: 30px;
@@ -21,8 +24,7 @@
 	--music-box-title-size: 18px;
 	--music-box-author-size: 13px;
 	--music-box-progress-radius: 30px;
-	--music-box-controls-gap: 15px;
+	--music-box-controls-size: 28px;
+	--music-box-play-button-size: 50px;
 	--music-box-play-button-radius: 50%;
-
-	--transition-duration: 0.4s;
 }
