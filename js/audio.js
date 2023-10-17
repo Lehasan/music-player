@@ -1,6 +1,6 @@
-export const getMusic = async () => {
+export const getAudio = async () => {
 	try {
-		const url = 'json/music.json',
+		const url = 'json/audio.json',
 			response = await fetch(url, { method: 'GET' })
 
 		return await response.json()
@@ -9,17 +9,17 @@ export const getMusic = async () => {
 	}
 }
 
-export const loadMusic = async (currentIndex, imageElement, titleElement, authorElement, musicElement) => {
-	const music = await getMusic()
+export const loadAudio = async (currentIndex, imageElement, titleElement, authorElement, audioElement) => {
+	const music = await getAudio()
 
 	music.forEach((musicItem) => {
-		const { id, title, cover, author, music } = musicItem
+		const { id, title, cover, author, audio } = musicItem
 
 		if (currentIndex === id) {
 			titleElement.textContent = title
 			imageElement.src = cover
 			authorElement.textContent = author
-			musicElement.src = music
+			audioElement.src = audio
 		}
 	})
 }

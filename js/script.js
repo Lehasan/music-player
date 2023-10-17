@@ -1,4 +1,4 @@
-import { getMusic, loadMusic } from "./music.js"
+import { getAudio, loadAudio } from "./audio.js"
 
 const audioPlayer = async () => {
 	// elements
@@ -12,27 +12,27 @@ const audioPlayer = async () => {
 		switchButtonElements = document.querySelectorAll('.music-player__switch-button')
 
 	// buttons
-	const musicPlayButton = document.getElementById('play'),
-		musicNextButton = document.getElementById('next'),
-		musicPrevButton = document.getElementById('prev')
+	const audioPlayButton = document.getElementById('play'),
+		audioNextButton = document.getElementById('next'),
+		audioPrevButton = document.getElementById('prev')
 
 	// volume setting
-	audioElement.volume = 0.5 // 0.5 => 50%
+	audioElement.volume = 0.8 // 0.5 => 50%
 
 	let audioIndex = 2
-	let musicItems = await getMusic()
+	let audioItems = await getAudio()
 
 	//musicItems.forEach(item => console.log(item)) ==================================================
 
 	// load music
-	loadMusic(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
+	loadAudio(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
 
 	// play and pause music
 	const audioPlayOnClick = () => {
-		musicPlayButton.blur()
-		musicPlayButton.classList.toggle('music-player__play_active')
+		audioPlayButton.blur()
+		audioPlayButton.classList.toggle('music-player__play_active')
 
-		if (!musicPlayButton.classList.contains('music-player__play_active')) {
+		if (!audioPlayButton.classList.contains('music-player__play_active')) {
 			return audioElement.pause()
 		}
 
@@ -99,31 +99,32 @@ const audioPlayer = async () => {
 		audioElement.pause()
 		audioElement.currentTime = null
 
+		audioDurationElement.textContent = '-:--'
 		audioImageElement.classList.remove('_loaded')
-		musicPlayButton.classList.remove('music-player__play_active')
+		audioPlayButton.classList.remove('music-player__play_active')
 		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
 
 		switchButtonState()
 
-		return loadMusic(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
+		return loadAudio(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
 	}
 
 	// buttons state
 	const switchButtonState = () => {
-		if (audioIndex === musicItems.length) {
-			musicNextButton.removeEventListener('click', nextMusicOnClick)
-			musicNextButton.classList.add('_disabled')
+		if (audioIndex === audioItems.length) {
+			audioNextButton.removeEventListener('click', nextMusicOnClick)
+			audioNextButton.classList.add('_disabled')
 		} else {
-			musicNextButton.addEventListener('click', nextMusicOnClick)
-			musicNextButton.classList.remove('_disabled')
+			audioNextButton.addEventListener('click', nextMusicOnClick)
+			audioNextButton.classList.remove('_disabled')
 		}
 
 		if (audioIndex === 1) {
-			musicPrevButton.removeEventListener('click', prevMusicOnClick)
-			musicPrevButton.classList.add('_disabled')
+			audioPrevButton.removeEventListener('click', prevMusicOnClick)
+			audioPrevButton.classList.add('_disabled')
 		} else {
-			musicPrevButton.addEventListener('click', prevMusicOnClick)
-			musicPrevButton.classList.remove('_disabled')
+			audioPrevButton.addEventListener('click', prevMusicOnClick)
+			audioPrevButton.classList.remove('_disabled')
 		}
 	}
 
@@ -134,7 +135,7 @@ const audioPlayer = async () => {
 	audioElement.addEventListener('loadeddata', () => setTimeAudio(audioDurationElement, audioElement.duration))
 	audioImageElement.addEventListener('load', () => audioImageElement.classList.add('_loaded'))
 
-	musicPlayButton.addEventListener('click', audioPlayOnClick)
+	audioPlayButton.addEventListener('click', audioPlayOnClick)
 	progressElement.parentElement.addEventListener('click', rewindAudioOnClick)
 
 	document.addEventListener('keydown', controlsOnKeydown)

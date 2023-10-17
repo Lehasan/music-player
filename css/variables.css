@@ -1,0 +1,28 @@
+:root {
+	--font-family: "Tilt Neon", sans-serif;
+	--color: #fff;
+
+	/* colors */
+	--background-gradient: #730091, #33015a;
+	--circle-top-gradient: #f504cd, #942bd1;
+	--circle-bottom-gradient: #fa732f, #df325d;
+
+	--music-box-progress-color: #808080;
+	--music-box-progress-line-color: #fff;
+	--music-box-progress-line-color-hover: #90ee90;
+	--music-box-progress-line-dot-color: #fff;
+
+	--background: rgba(255, 255, 255, 0.1);
+
+	/* music box setting */
+	--music-box-padding: 30px;
+	--music-box-blur: 10px;
+	--music-box-radius: 15px;
+	--music-box-title-size: 18px;
+	--music-box-author-size: 13px;
+	--music-box-progress-radius: 30px;
+	--music-box-controls-gap: 15px;
+	--music-box-play-button-radius: 50%;
+
+	--transition-duration: 0.4s;
+}
