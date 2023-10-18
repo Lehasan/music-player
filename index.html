@@ -13,48 +13,62 @@
 	<div class="wrapper">
 		<div class="music-player">
 			<div class="music-player__box">
+				<!-- audio cover -->
 				<div class="music-player__img">
 					<span class="music-player__loader loader"></span>
 					<img src="" alt="Cover">
 				</div>
+
+				<!-- title and author -->
 				<div class="music-player__title"></div>
 				<div class="music-player__author"></div>
+
+				<!-- audio time information -->
 				<div class="music-player__info">
 					<span class="music-player__current-time">-:--</span>
 					<span class="music-player__duration">-:--</span>
 				</div>
+
+				<!-- audio progress -->
 				<div class="music-player__progress">
 					<span style="width: 0%;"></span>
 				</div>
+
+				<!-- control buttons -->
 				<div class="music-player__controls">
+					<!-- button "loop" -->
 					<button id="loop" type="button" class="music-player__button-loop">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<svg xmlns="http://www.w3.org/2000/svg" height="80%" viewBox="0 0 24 24">
 							<path stroke="#fff"
 								d="M4.70710678,18 L6.85355339,20.1464466 C7.04881554,20.3417088 7.04881554,20.6582912 6.85355339,20.8535534 C6.65829124,21.0488155 6.34170876,21.0488155 6.14644661,20.8535534 L3.14644661,17.8535534 C2.95118446,17.6582912 2.95118446,17.3417088 3.14644661,17.1464466 L6.14644661,14.1464466 C6.34170876,13.9511845 6.65829124,13.9511845 6.85355339,14.1464466 C7.04881554,14.3417088 7.04881554,14.6582912 6.85355339,14.8535534 L4.70710678,17 L18.5,17 C19.3284271,17 20,16.3284271 20,15.5 L20,12.5 C20,12.2238576 20.2238576,12 20.5,12 C20.7761424,12 21,12.2238576 21,12.5 L21,15.5 C21,16.8807119 19.8807119,18 18.5,18 L4.70710678,18 Z M19.2928932,7 L17.1464466,4.85355339 C16.9511845,4.65829124 16.9511845,4.34170876 17.1464466,4.14644661 C17.3417088,3.95118446 17.6582912,3.95118446 17.8535534,4.14644661 L20.8535534,7.14644661 C21.0488155,7.34170876 21.0488155,7.65829124 20.8535534,7.85355339 L17.8535534,10.8535534 C17.6582912,11.0488155 17.3417088,11.0488155 17.1464466,10.8535534 C16.9511845,10.6582912 16.9511845,10.3417088 17.1464466,10.1464466 L19.2928932,8 L5.5,8 C4.67157288,8 4,8.67157288 4,9.5 L4,12.5 C4,12.7761424 3.77614237,13 3.5,13 C3.22385763,13 3,12.7761424 3,12.5 L3,9.5 C3,8.11928813 4.11928813,7 5.5,7 L19.2928932,7 Z" />
 						</svg>
 					</button>
 
+					<!-- next/prev and play buttons -->
 					<button id="prev" type="button"
 						class="music-player__switch-button music-player__switch-button_prev"></button>
 					<button id="play" type="button" class="music-player__play"></button>
 					<button id="next" type="button"
 						class="music-player__switch-button music-player__switch-button_next"></button>
 
+					<!-- button "random" -->
 					<button id="random" type="button" class="music-player__button-random">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-							<path fill="#fff" d=" M18 17.883V16l5 3-5 3v-2.09a9 9 0 0 1-6.997-5.365L11 14.54l-.003.006A9 9 0 0 1 2.725 20H2v-2h.725a7 7 0 0 0
-								6.434-4.243L9.912 12l-.753-1.757A7 7 0 0 0 2.725 6H2V4h.725a9 9 0 0 1 8.272 5.455L11
-								9.46l.003-.006A9 9 0 0 1 18 4.09V2l5 3-5 3V6.117a7 7 0 0 0-5.159 4.126L12.088 12l.753 1.757A7 7
-								0 0 0 18 17.883z" />
+						<svg xmlns="http://www.w3.org/2000/svg" height="70%" viewBox="0 0 24 24">
+							<path fill="#fff"
+								d="M18 9v-3c-1 0-3.308-.188-4.506 2.216l-4.218 8.461c-1.015 2.036-3.094 3.323-5.37 3.323h-3.906v-2h3.906c1.517 0 2.903-.858 3.58-2.216l4.218-8.461c1.356-2.721 3.674-3.323 6.296-3.323v-3l6 4-6 4zm-9.463 1.324l1.117-2.242c-1.235-2.479-2.899-4.082-5.748-4.082h-3.906v2h3.906c2.872 0 3.644 2.343 4.631 4.324zm15.463 8.676l-6-4v3c-3.78 0-4.019-1.238-5.556-4.322l-1.118 2.241c1.021 2.049 2.1 4.081 6.674 4.081v3l6-4z" />
 						</svg>
 					</button>
 				</div>
 			</div>
+
+			<!-- menu -->
 			<div class="music-player__box music-menu">
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat quam ratione sunt, veniam dolor assumenda
 				nihil! Assumenda soluta aliquid rerum aperiam dolores illum mollitia, alias laudantium distinctio facere
 				velit vel!
 			</div>
+
+			<!-- audio -->
 			<audio src="" preload class="music-player__audio"></audio>
 		</div>
 	</div>

@@ -89,6 +89,7 @@
 
 .music-player__author {
 	font-size: var(--music-box-author-size);
+	text-wrap: balance;
 	margin-bottom: 30px;
 }
 
@@ -139,6 +140,14 @@
 
 .music-player__button-loop,
 .music-player__switch-button,
+.music-player__button-random,
+.music-player__play {
+	display: grid;
+	place-items: center;
+}
+
+.music-player__button-loop,
+.music-player__switch-button,
 .music-player__button-random {
 	width: var(--music-box-controls-size);
 	height: var(--music-box-controls-size);
@@ -161,8 +170,6 @@
 .music-player__play {
 	width: var(--music-box-play-button-size);
 	height: var(--music-box-play-button-size);
-	display: grid;
-	place-items: center;
 	border-radius: var(--music-box-play-button-radius);
 	background-color: var(--background-item);
 }
