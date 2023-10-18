@@ -50,7 +50,7 @@ const audioPlayer = async () => {
 		randomAudioIndex()
 
 		audioElement.autoplay = true
-		setTimeout(() => audioElement.autoplay = false, 300)
+		setTimeout(() => audioElement.autoplay = false, 500)
 
 		return updateAudio()
 	}
