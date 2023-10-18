@@ -48,11 +48,9 @@ const audioPlayer = async () => {
 	// random audio
 	const randomAudio = () => {
 		randomAudioIndex()
+		updateAudio()
 
-		audioElement.autoplay = true
-		setTimeout(() => audioElement.autoplay = false, 500)
-
-		return updateAudio()
+		return audioElement.autoplay = true
 	}
 
 	// play and pause audio
@@ -144,6 +142,7 @@ const audioPlayer = async () => {
 
 	// audio reset
 	const resetAudio = () => {
+		audioElement.autoplay = false
 		audioElement.currentTime = null
 		audioDurationElement.textContent = '-:--'
 		audioImageElement.classList.remove('_loaded')
@@ -151,8 +150,6 @@ const audioPlayer = async () => {
 
 	// update the audio
 	const updateAudio = () => {
-		audioElement.pause()
-
 		resetAudio()
 		switchButtonState()
 

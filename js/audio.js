@@ -3,9 +3,10 @@
 export const getAudio = async () => {
 	try {
 		const url = 'json/audio.json',
-			response = await fetch(url, { method: 'GET' })
+			response = await fetch(url, { method: 'GET' }),
+			result = await response.json()
 
-		return await response.json()
+		return result
 
 	} catch (error) {
 		return console.error(error)
