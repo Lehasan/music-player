@@ -9,21 +9,15 @@
 	--circle-top-gradient: #f504cd, #942bd1;
 	--circle-bottom-gradient: #fa732f, #df325d;
 
-	--music-box-progress-color: #808080;
-	--music-box-progress-line-color: #fff;
-	--music-box-progress-line-color-hover: var(--accent-color);
-	--music-box-progress-line-dot-color: #fff;
-
 	--background-item: rgba(255, 255, 255, 0.1);
 	--accent-color: #90ee90;
 
 	/* music box setting */
 	--music-box-padding: 30px;
 	--music-box-blur: 10px;
-	--music-box-radius: 15px;
+	--music-box-radius: 20px;
 	--music-box-title-size: 18px;
 	--music-box-author-size: 13px;
-	--music-box-progress-radius: 30px;
 	--music-box-controls-size: 30px;
 	--music-box-play-button-size: 50px;
 	--music-box-play-button-radius: 50%;

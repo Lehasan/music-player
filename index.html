@@ -13,10 +13,14 @@
 	<div class="wrapper">
 		<div class="music-player">
 			<div class="music-player__box">
+				<div class="music-player__top menu-top">
+					<button id="menu-open" type="button" class="menu-top__button"></button>
+					<span class="menu-top__label">Playing Now</span>
+				</div>
 				<!-- audio cover -->
-				<div class="music-player__img">
+				<div class="music-player__image">
 					<span class="music-player__loader loader"></span>
-					<img src="" alt="Cover">
+					<img src="" alt="Cover" loading="lazy">
 				</div>
 
 				<!-- title and author -->
@@ -31,7 +35,7 @@
 
 				<!-- audio progress -->
 				<div class="music-player__progress">
-					<span style="width: 0%;"></span>
+					<input min="0" max="100" value="0" type="range">
 				</div>
 
 				<!-- control buttons -->
@@ -63,9 +67,10 @@
 
 			<!-- menu -->
 			<div class="music-player__box music-menu">
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat quam ratione sunt, veniam dolor assumenda
-				nihil! Assumenda soluta aliquid rerum aperiam dolores illum mollitia, alias laudantium distinctio facere
-				velit vel!
+				<div class="music-menu__top menu-top">
+					<button id="menu-back" type="button" class="menu-top__button menu-top__button_back"></button>
+					<span class="menu-top__label">Playlist</span>
+				</div>
 			</div>
 
 			<!-- audio -->

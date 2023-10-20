@@ -1,14 +1,14 @@
 [
 	{
 		"id": 1,
-		"cover": "https://i.ytimg.com/vi/piOV8SHafRo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCLNto3x_UeKTxO3Q_BZju04keKmQ",
+		"cover": "http://surl.li/mizjn",
 		"title": "Montagem Dilatação Hipnótica 5.0",
 		"author": "DJ CRAZY 013, DJ Gk7 Original, DJ Lipe Da Zn",
 		"audio": "audio/Montagem Dilatação Hipnótica 50.mp3"
 	},
 	{
 		"id": 2,
-		"cover": "https://i.ytimg.com/vi/mGCzMWMo8N4/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLASVa2xfO4AzTutLKM213_v-PM__Q",
+		"cover": "http://surl.li/mizjy",
 		"title": "We Lose It All (ft. Voicians)",
 		"author": "Boxplot, Voicians",
 		"audio": "audio/We Lose It All (ft. Voicians).mp3"
@@ -22,9 +22,16 @@
 	},
 	{
 		"id": 4,
-		"cover": "https://i.ytimg.com/vi/LbiwRrzgVT8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD8fIHoaic8D8Pbd9nHUIo1SU07zg",
+		"cover": "http://surl.li/mizkm",
 		"title": "Heartbreaker",
 		"author": "Iwakura",
 		"audio": "audio/Heartbreaker.mp3"
+	},
+	{
+		"id": 5,
+		"cover": "http://surl.li/mizld",
+		"title": "Shiki No Uta",
+		"author": "Moovy B",
+		"audio": "audio/Shiki No Uta.mp3"
 	}
 ]
