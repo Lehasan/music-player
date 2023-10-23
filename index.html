@@ -18,18 +18,21 @@
 					<button id="menu-open" type="button" class="menu-top__button"></button>
 					<span class="menu-top__label">Playing Now</span>
 				</div>
+
 				<!-- audio cover -->
-				<div class="music-player__image">
-					<span class="music-player__loader loader"></span>
-					<img src="" alt="Cover" loading="lazy">
+				<div class="music-player__image image">
+					<span class="image__loader loader"></span>
+					<img src="#" alt="Cover" loading="lazy">
 				</div>
 
 				<!-- title and author -->
-				<div class="music-player__title"></div>
-				<div class="music-player__author"></div>
+				<div class="music-player__info">
+					<div class="music-player__title title"></div>
+					<div class="music-player__author author"></div>
+				</div>
 
 				<!-- audio time information -->
-				<div class="music-player__info">
+				<div class="music-player__time">
 					<span class="music-player__current-time">-:--</span>
 					<span class="music-player__duration">-:--</span>
 				</div>
@@ -72,10 +75,11 @@
 					<button id="menu-back" type="button" class="menu-top__button menu-top__button_back"></button>
 					<span class="menu-top__label">Playlist</span>
 				</div>
+				<ul class="music-menu__list list-menu"></ul>
 			</div>
 
 			<!-- audio -->
-			<audio src="" preload="metadata" class="music-player__audio"></audio>
+			<audio src="#" preload="metadata" class="music-player__audio"></audio>
 		</div>
 	</div>
 </body>

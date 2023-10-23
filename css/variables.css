@@ -21,4 +21,5 @@
 	--music-box-controls-size: 30px;
 	--music-box-play-button-size: 50px;
 	--music-box-play-button-radius: 50%;
+	--music-box-transition-duration: 1.3s;
 }

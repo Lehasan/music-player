@@ -2,7 +2,7 @@
 
 export const getAudio = async () => {
 	try {
-		const url = 'json/audio.json',
+		const url = 'json/data.json',
 			response = await fetch(url, { method: 'GET' }),
 			result = await response.json()
 
@@ -14,10 +14,10 @@ export const getAudio = async () => {
 }
 
 export const loadAudio = async (currentIndex, imageElement, titleElement, authorElement, audioElement) => {
-	const music = await getAudio()
+	const audio = await getAudio()
 
-	return music.forEach(musicItem => {
-		const { id, title, cover, author, audio } = musicItem
+	return audio.forEach(audioItem => {
+		const { id, title, cover, author, audio } = audioItem
 
 		if (currentIndex === id) {
 			titleElement.textContent = title
@@ -25,5 +25,26 @@ export const loadAudio = async (currentIndex, imageElement, titleElement, author
 			authorElement.textContent = author
 			audioElement.src = audio
 		}
+	})
+}
+
+export const loadAudioInMenu = async list => {
+	const audio = await getAudio()
+
+	return audio.forEach(audioItem => {
+		const { id, cover, title, author } = audioItem
+
+		const audioItemsTemplate = `
+		<li class="list-menu__item" data-value="${id}">
+			<div class="list-menu__image image">
+				<img src="${cover}" alt="Cover" loading="lazy">
+			</div>
+			<div class="list-menu__box">
+				<div class="list-menu__title title title_small">${title}</div>
+				<div class="list-menu__author author">${author}</div>
+			</div>
+		</li>`
+
+		list.insertAdjacentHTML('beforeend', audioItemsTemplate)
 	})
 }

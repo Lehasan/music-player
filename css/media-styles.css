@@ -1,0 +1,28 @@
+@media (any-hover: hover) {
+	.menu-top__button,
+	.music-player__button-loop,
+	.music-player__button-random,
+	.music-player__play {
+		transition: transform var(--transition-duration);
+	}
+
+	.music-player__progress input {
+		transition: accent-color var(--transition-duration);
+	}
+
+	.music-player__progress input:hover {
+		accent-color: var(--accent-color);
+	}
+
+	.menu-top__button:hover,
+	.music-player__button-loop:hover,
+	.music-player__button-random:hover,
+	.music-player__switch-button:hover,
+	.music-player__play:hover {
+		transform: scale(1.15);
+	}
+
+	.list-menu__item:hover {
+		transform: scale(1.1);
+	}
+}
