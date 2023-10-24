@@ -1,12 +1,3 @@
-.music-menu::-webkit-scrollbar {
-	width: 3px;
-}
-
-.music-menu::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-color: rgba(255, 255, 255, 0.3);
-}
-
 .music-player._active .music-menu {
 	overflow-y: auto;
 	transform: rotateY(360deg);
@@ -31,9 +22,8 @@
 	z-index: 1;
 }
 
-.music-menu__top._active {
-	background-color: #753290;
-	padding: 20px var(--music-box-padding);
+.music-menu__top._scroll {
+	background-color: var(--music-box-menu-header-color);
 }
 
 .list-menu {
@@ -49,26 +39,26 @@
 	display: flex;
 	align-items: center;
 	text-align: left;
-	padding: 10px;
-	border-radius: 10px;
+	padding: var(--music-box-menu-item-padding);
+	border-radius: var(--music-box-menu-item-radius);
 	background-color: var(--background-item);
-	gap: 10px;
+	gap: var(--music-box-menu-item-gap);
 	transition: all var(--transition-duration);
 	cursor: pointer;
 }
 
 .list-menu__item._active {
-	box-shadow: inset 0 0 0 1px #fff;
+	box-shadow: inset 0 0 0 var(--music-box-menu-item-active-border) var(--music-box-menu-item-active-color);
 	pointer-events: none;
 }
 
 .list-menu__image {
-	flex: 0 0 75px;
-	height: 75px;
+	flex: 0 0 var(--music-box-menu-item-image);
+	height: var(--music-box-menu-item-image);
 }
 
 .list-menu__image img {
-	border-radius: 10px;
+	border-radius: var(--music-box-menu-item-radius);
 }
 
 .list-menu__title {

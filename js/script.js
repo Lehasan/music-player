@@ -1,11 +1,11 @@
 'use strict'
 
 import { isMobile } from "./devices.js"
-import { getAudio, loadAudio, loadAudioInMenu } from "./audio.js"
+import { fetchAudioData, loadAudio, loadAudioInMenu } from "./audio.js"
 import { audioPlayerMenu } from "./menu.js"
 
-const audioPlayer = async () => {
-	// elements
+const audioPlayer = async (audioIndex) => {
+	// audio player elements
 	const audioElement = document.querySelector('.music-player__audio'),
 		audioImageElement = document.querySelector('.music-player__image img'),
 		audioTitleElement = document.querySelector('.music-player__title'),
@@ -16,16 +16,15 @@ const audioPlayer = async () => {
 		menuListElement = document.querySelector('.list-menu'),
 		switchButtonElements = document.querySelectorAll('.music-player__switch-button')
 
-	// buttons
+	// audio player buttons
 	const audioPlayButton = document.getElementById('play'),
 		audioNextButton = document.getElementById('next'),
 		audioPrevButton = document.getElementById('prev'),
 		audioLoopButton = document.getElementById('loop'),
 		audioRandomButton = document.getElementById('random')
 
-	const audioItems = await getAudio()
-
-	let audioIndex
+	// get audio elements
+	const audioItems = await fetchAudioData()
 
 	// volume setting
 	audioElement.volume = 0.8 // 0.5 => 50%
@@ -44,22 +43,21 @@ const audioPlayer = async () => {
 	// random audio
 	const randomAudio = () => {
 		randomAudioIndex()
-
 		return updateAudio()
 	}
 
 	// play audio
 	const audioPlay = () => {
-		audioPlayButton.classList.add('_active')
 		audioElement.autoplay = true
+		audioPlayButton.classList.add('_active')
 
 		return audioElement.play()
 	}
 
 	// pause audio
 	const audioPause = () => {
-		audioPlayButton.classList.remove('_active')
 		audioElement.autoplay = false
+		audioPlayButton.classList.remove('_active')
 
 		return audioElement.pause()
 	}
@@ -67,8 +65,7 @@ const audioPlayer = async () => {
 	// play and pause audio
 	const toggleAudioPlay = () => {
 		audioPlayButton.blur()
-
-		audioElement.paused ? audioPlay() : audioPause()
+		return audioElement.paused ? audioPlay() : audioPause()
 	}
 
 	// audio loop switching
@@ -89,12 +86,12 @@ const audioPlayer = async () => {
 
 	// audio progress
 	const updateAudioProgress = event => {
-		const { currentTime, duration } = event.currentTarget
-		setTimeAudio(audioCurrentTimeElement, currentTime)
-
-		const progressValue = currentTime / duration * 100
+		const { currentTime, duration } = event.currentTarget,
+			progressValue = currentTime / duration * 100
 
 		!progressValue ? progressElement.value = 0 : progressElement.value = progressValue
+
+		return setTimeAudio(audioCurrentTimeElement, currentTime)
 	}
 
 	// rewind the audio
@@ -104,9 +101,9 @@ const audioPlayer = async () => {
 		const fullWidthProgress = target.max,
 			currentCordinate = target.value
 
-		target.blur()
+		audioElement.currentTime = currentCordinate / fullWidthProgress * audioElement.duration
 
-		return audioElement.currentTime = currentCordinate / fullWidthProgress * audioElement.duration
+		return target.blur()
 	}
 
 	// determining and setting the time of audio
@@ -132,19 +129,12 @@ const audioPlayer = async () => {
 		}
 	}
 
-	// audio change
-	const changeAudio = () => {
-
-		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
-
-		return updateAudio();
-	}
-
 	// audio reset
 	const resetAudio = () => {
-		audioElement.currentTime = null
 		audioDurationElement.textContent = '-:--'
 		audioImageElement.classList.remove('_loaded')
+
+		return audioElement.currentTime = null
 	}
 
 	// update the audio
@@ -153,37 +143,32 @@ const audioPlayer = async () => {
 		setActiveAudio()
 		switchButtonState()
 
+		switchButtonElements.forEach(switchButtonItem => switchButtonItem.blur())
+
 		return loadAudio(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
 	}
 
 	// next audio when you click
 	const nextAudioOnClick = () => {
 		audioIndex++
-
-		return changeAudio()
+		return updateAudio()
 	}
 
 	// previous audio when you click
 	const prevAudioOnClick = () => {
 		audioIndex--
-
-		return changeAudio()
+		return updateAudio()
 	}
 
-	// class switching
-	const toggleButtonClass = buttonElement => {
-		buttonElement.blur()
-		buttonElement.classList.toggle('_active')
-	}
-
+	// choice audio when click in menu
 	const menuChoiceAudioOnClick = event => {
 		const audioTarget = event.target.closest('.list-menu__item')
 
 		if (audioTarget) {
-			audioIndex = +audioTarget.dataset.value
+			audioIndex = Number(audioTarget.dataset.value)
 
-			setActiveAudio()
 			audioPlay()
+			setActiveAudio()
 			switchButtonState()
 
 			return loadAudio(audioIndex, audioImageElement, audioTitleElement, audioAuthorElement, audioElement)
@@ -192,9 +177,8 @@ const audioPlayer = async () => {
 
 	// end of audio
 	const audioEnd = () => {
-		audioElement.currentTime = null
-
 		audioRandomButton.classList.contains('_active') ? randomAudio() : audioPause()
+		return audioElement.currentTime = null
 	}
 
 	// buttons state
@@ -216,17 +200,25 @@ const audioPlayer = async () => {
 		}
 	}
 
+	// set active state audio
 	const setActiveAudio = () => {
 		const currentAudio = document.querySelector(`[data-value="${audioIndex}"]`)
 
 		const audioActive = document.querySelector('.list-menu__item._active')
 		if (audioActive) audioActive.classList.remove('_active')
 
-		currentAudio.classList.add('_active')
+		return currentAudio.classList.add('_active')
 	}
 
-	randomAudioIndex()
+	// class switching
+	const toggleButtonClass = buttonElement => {
+		buttonElement.classList.toggle('_active')
+		return buttonElement.blur()
+	}
+
+	// init functions
 	await loadAudioInMenu(menuListElement)
+	randomAudioIndex()
 	setActiveAudio()
 	switchButtonState()
 

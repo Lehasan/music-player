@@ -1,6 +1,7 @@
 'use strict'
 
-export const getAudio = async () => {
+// get all audio elements
+export const fetchAudioData = async () => {
 	try {
 		const url = 'json/data.json',
 			response = await fetch(url, { method: 'GET' }),
@@ -9,29 +10,33 @@ export const getAudio = async () => {
 		return result
 
 	} catch (error) {
-		return console.error(error)
+		throw new Error('An error occurred while receiving audio elements')
 	}
 }
 
+// load audio in player
 export const loadAudio = async (currentIndex, imageElement, titleElement, authorElement, audioElement) => {
-	const audio = await getAudio()
+	const audio = await fetchAudioData()
 
-	return audio.forEach(audioItem => {
-		const { id, title, cover, author, audio } = audioItem
+	const findAudio = (element, index) => {
+		if (index + 1 === currentIndex) {
+			const { title, cover, author, audio } = element
 
-		if (currentIndex === id) {
-			titleElement.textContent = title
 			imageElement.src = cover
+			titleElement.textContent = title
 			authorElement.textContent = author
 			audioElement.src = audio
 		}
-	})
+	}
+
+	return audio.find(findAudio)
 }
 
+// load audio in player menu
 export const loadAudioInMenu = async list => {
-	const audio = await getAudio()
+	const audio = await fetchAudioData()
 
-	return audio.forEach(audioItem => {
+	return audio.map(audioItem => {
 		const { id, cover, title, author } = audioItem
 
 		const audioItemsTemplate = `

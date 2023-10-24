@@ -6,11 +6,16 @@
 
 	/* colors */
 	--background-gradient: #730091, #33015a;
+
 	--circle-top-gradient: #f504cd, #942bd1;
 	--circle-bottom-gradient: #fa732f, #df325d;
 
 	--background-item: rgba(255, 255, 255, 0.1);
 	--accent-color: #90ee90;
+
+	/* menu colors */
+	--music-box-menu-header-color: #753290;
+	--music-box-menu-item-active-color: #fff;
 
 	/* music box setting */
 	--music-box-padding: 30px;
@@ -22,4 +27,22 @@
 	--music-box-play-button-size: 50px;
 	--music-box-play-button-radius: 50%;
 	--music-box-transition-duration: 1.3s;
+	--music-box-circle-animation-duration: 2.5s;
+
+	/* music box menu setting */
+	--music-box-menu-item-padding: 8px;
+	--music-box-menu-item-radius: 8px;
+	--music-box-menu-item-gap: 13px;
+	--music-box-menu-item-image: 75px;
+	--music-box-menu-item-active-border: 1px;
+
+	/* music box menu scrollbar setting */
+	--music-box-menu-scrollbar: 3px;
+	--music-box-menu-scrollbar-thumb-radius: 10px;
+	--music-box-menu-scrollbar-thumb-color: rgba(255, 255, 255, 0.3);
+
+	/* loader setting */
+	--loader-size: 48px;
+	--loader-color: #fff;
+	--loader-duration: 1s;
 }

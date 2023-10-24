@@ -38,7 +38,7 @@
 	width: 200px;
 	height: 200px;
 	background: linear-gradient(to right, var(--circle-top-gradient));
-	animation: anim-rotate 2.5s ease-in infinite alternate-reverse;
+	animation: anim-rotate var(--music-box-circle-animation-duration) ease-in infinite alternate-reverse;
 }
 
 .music-player::after {
@@ -47,7 +47,7 @@
 	width: 250px;
 	height: 250px;
 	background: linear-gradient(to right, var(--circle-bottom-gradient));
-	animation: anim-rotate 2.5s ease-in-out infinite alternate;
+	animation: anim-rotate var(--music-box-circle-animation-duration) ease-in-out infinite alternate;
 }
 
 .music-player__top {

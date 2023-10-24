@@ -1,4 +1,16 @@
 @media (any-hover: hover) {
+	/* scrollbar  */
+	.music-menu::-webkit-scrollbar {
+		width: var(--music-box-menu-scrollbar);
+	}
+
+	.music-menu::-webkit-scrollbar-thumb {
+		border-radius: var(--music-box-menu-scrollbar-thumb-radius);
+		background-color: var(--music-box-menu-scrollbar-thumb-color);
+	}
+
+	/* =================================================================== */
+
 	.menu-top__button,
 	.music-player__button-loop,
 	.music-player__button-random,
