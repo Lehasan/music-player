@@ -177,7 +177,9 @@ const audioPlayer = async (audioIndex) => {
 
 	// end of audio
 	const audioEnd = () => {
-		audioRandomButton.classList.contains('_active') ? randomAudio() : audioPause()
+		const isRandomActive = audioRandomButton.classList.contains('_active')
+		isRandomActive ? randomAudio() : audioPause()
+
 		return audioElement.currentTime = null
 	}
 
